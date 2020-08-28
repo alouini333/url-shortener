@@ -53,7 +53,6 @@ app.post('/', async (req, res, next) => {
       slug = nanoid(7);
     }
     const insertedUrl = await new Url({ url, slug }).save();
-    console.log('Hello');
     res.json(insertedUrl);
   } catch (error) {
     if (error.name === 'ValidationError') {
