@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/all', async (req, res, next) => {
+app.get('/stats/all', async (req, res, next) => {
   try {
     const urls = await Url.find();
     res.json(urls);
@@ -22,6 +22,7 @@ app.get('/all', async (req, res, next) => {
     next(error);
   }
 });
+
 app.get('/:slug', async (req, res, next) => {
   try {
     const { slug } = req.params;
